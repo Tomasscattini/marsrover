@@ -1,0 +1,37 @@
+.grid {
+    height: 800px;
+    width: 800px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    margin: 0 auto;
+}
+
+.square {
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.square img {
+    height: 53.33%;
+    width: 100%;
+    margin-top: 23.33%;
+}
+
+form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+form #answer {
+    width: 75%;
+}
+
+form #button {
+    width: 22%;
+}
