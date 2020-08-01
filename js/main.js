@@ -10,6 +10,7 @@ function gridColor() {
             square[i].style.backgroundColor = '#8d5b50';
         }
     }
+
 };
 
 
@@ -69,6 +70,17 @@ function pointer() {
     }
 
 };
+
+// Trail
+
+function paintTrail() {
+    for (let i = 0; i < rover.travelLog.length; i++) {
+        let j = Number(rover.travelLog[i]);
+
+        square[j].style.backgroundColor = "#573730";
+
+    }
+}
 
 // Board/Mars
 
@@ -255,7 +267,7 @@ function result() {
         document.getElementById("play-again").style.display = "block";
         document.getElementById("flag").remove();
     } else if (clicks >= 3) {
-        document.getElementById("lost").innerHTML = "The way ahead is long and full of perils. Keep trying your best until you reach the flag!";
+        document.getElementById("lost").innerHTML = "Mars is a dangerous place. You have to be faster! Every second counts";
         document.getElementById("lost").style.display = "block";
         document.getElementById("button-container").style.display = "flex";
     }
@@ -302,6 +314,7 @@ document.getElementById("button").addEventListener("click", function() {
     moveRoverImg();
     pointer();
     document.getElementById("answer").value = "";
+    paintTrail();
     clicks++;
     result();
 
