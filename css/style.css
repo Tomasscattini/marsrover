@@ -110,6 +110,7 @@ form #button {
 h3 {
     margin: 0;
     text-transform: uppercase;
+    font-family: sans-serif;
     font-size: 1rem;
     text-align: center;
 }
@@ -119,8 +120,8 @@ h3 {
     display: none;
     justify-content: space-between;
     width: 500px;
-    margin-left: 100px;
-    margin-top: 500px;
+    left: 100px;
+    top: 500px;
 }
 
 #keep-trying {
@@ -128,5 +129,13 @@ h3 {
 }
 
 #start-again {
+    padding-top: 7px;
+}
+
+#play-again {
+    display: none;
+    position: absolute;
+    top: 500px;
+    left: 260px;
     padding-top: 7px;
 }

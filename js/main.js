@@ -105,7 +105,7 @@ function turnLeft(rover) {
             break;
     }
 
-    rover.travelLog.push('x=' + rover.x + ' y= ' + rover.y);
+    rover.travelLog.push(rover.x.toString() + rover.y.toString());
 }
 
 
@@ -125,7 +125,7 @@ function turnRight(rover) {
             break;
     }
 
-    rover.travelLog.push('x=' + rover.x + ' y= ' + rover.y);
+    rover.travelLog.push(rover.x.toString() + rover.y.toString());
 }
 
 function moveForward(rover) {
@@ -172,7 +172,7 @@ function moveForward(rover) {
 
     }
 
-    rover.travelLog.push('x=' + rover.x + ' y= ' + rover.y);
+    rover.travelLog.push(rover.x.toString() + rover.y.toString());
 
 }
 
@@ -221,7 +221,7 @@ function moveBackward(rover) {
 
     }
 
-    rover.travelLog.push('x=' + rover.x + ' y= ' + rover.y);
+    rover.travelLog.push(rover.x.toString() + rover.y.toString());
 
 }
 
@@ -243,6 +243,8 @@ function moveRover(parameter) {
 
 // Result signs
 
+let clicks = 0;
+
 function result() {
     let x = rover.x;
     let y = rover.y;
@@ -250,8 +252,9 @@ function result() {
     if (x.toString() + y.toString() === "99") {
         document.getElementById("win").innerHTML = "You've reached your destination. Congratulations!";
         document.getElementById("win").style.display = "block";
+        document.getElementById("play-again").style.display = "block";
         document.getElementById("flag").remove();
-    } else {
+    } else if (clicks >= 3) {
         document.getElementById("lost").innerHTML = "The way ahead is long and full of perils. Keep trying your best until you reach the flag!";
         document.getElementById("lost").style.display = "block";
         document.getElementById("button-container").style.display = "flex";
@@ -266,21 +269,26 @@ document.getElementById("keep-trying").addEventListener("click", function() {
     document.getElementById("button-container").style.display = "none";
 });
 
-document.getElementById("start-again").addEventListener("click", function() {
+document.getElementById("start-again").addEventListener("click", playAgain);
+document.getElementById("play-again").addEventListener("click", playAgain);
+
+function playAgain() {
     document.getElementById("error").style.display = "none";
     document.getElementById("lost").style.display = "none";
+    document.getElementById("win").style.display = "none";
     document.getElementById("button-container").style.display = "none";
+    document.getElementById("play-again").style.display = "none";
     rover.x = 0;
     rover.y = 0;
     rover.direction = "N";
     moveRoverImg();
     gridColor();
-});
+    rover.travelLog = [];
+}
 
 // Input field
 
 let input = [];
-let clicks = 0;
 
 gridColor();
 moveRoverImg();
@@ -293,9 +301,9 @@ document.getElementById("button").addEventListener("click", function() {
     moveRover(input[0]);
     moveRoverImg();
     pointer();
-    console.log(rover);
     document.getElementById("answer").value = "";
     clicks++;
-    console.log(clicks);
+    result();
 
+    console.log(rover.travelLog);
 });
