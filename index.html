@@ -11,7 +11,9 @@
 <body>
 
     <div class="grid">
-        <div class="square" id="00"></div>
+        <div class="square" id="00">
+            <img id="rover" src="https://lh3.googleusercontent.com/ddXRGHPS_RAln1IKRktvl_SH1eK8CnFZZrDbhbhzgSDMU57QCF16JBOe2xlBIyyX8MoJmyjfbz4jdWxwnTz7Z7JfFBG2frfdsb8iT84tLzqMN9x5RU2tx7DN-Bwc9KQLUoMWlcql1oI=w2400?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/ddXRGHPS_RAln1IKRktvl_SH1eK8CnFZZrDbhbhzgSDMU57QCF16JBOe2xlBIyyX8MoJmyjfbz4jdWxwnTz7Z7JfFBG2frfdsb8iT84tLzqMN9x5RU2tx7DN-Bwc9KQLUoMWlcql1oI=w600-h315-p-k"
+                alt="rover"></div>
         <div class="square" id="01">
             <img src="img/crater.jpg" alt="crater">
         </div>
@@ -146,14 +148,28 @@
         </div>
         <div class="square" id="98"></div>
         <div class="square" id="99">
-            <img src="img/flag.svg" alt="flag"></div>
+            <img id="flag" src="img/flag.svg" alt="flag">
+        </div>
+
+        <h2 id="error">You can't place the rover outside the board!</h2>
+        <h2 id="lost"></h2>
+        <h2 id="win"></h2>
+        <div id="button-container">
+            <div class="button" id="keep-trying">
+                <h3>Keep trying</h3>
+            </div>
+            <div class="button" id="start-again">
+                <h3>Start again</h3>
+            </div>
+        </div>
     </div>
 
     <form action="#">
         <label for="answer"><h1>Write your answer here:</h1></label>
         <input id="answer" type="text" placeholder="Your answer">
-        <input id="button" type="button" value="Submit">
+        <input id="button" class="button" type="button" value="Submit">
     </form>
+
 
     <script src="js/main.js"></script>
 

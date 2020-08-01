@@ -1,10 +1,18 @@
+body {
+    background-image: url(../img/fondo.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: repeat-y;
+}
+
 .grid {
-    height: 800px;
-    width: 800px;
+    height: 700px;
+    width: 700px;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
     margin: 0 auto;
+    position: relative;
 }
 
 .square {
@@ -19,13 +27,22 @@
     margin-top: 23.33%;
 }
 
+#flag {
+    margin: 5px;
+    height: 50px;
+    width: auto;
+}
+
 form {
-    width: 50%;
+    width: 700px;
     margin: 0 auto;
 }
 
 h1 {
+    color: white;
     text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
 }
 
 form #answer {
@@ -34,4 +51,82 @@ form #answer {
 
 form #button {
     width: 22%;
+}
+
+.button {
+    color: white;
+    background-color: #ae7b66;
+    border: 1px solid black;
+    width: 180px;
+    height: 30px;
+}
+
+.button:hover {
+    background-color: #8d5b50;
+    cursor: pointer;
+}
+
+#error,
+#lost,
+#win {
+    display: none;
+    position: absolute;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#error {
+    font-size: 3rem;
+    top: 25%;
+    left: 0;
+    color: red;
+    background-color: black;
+    z-index: 4;
+    text-shadow: 2px 2px black;
+    padding: 40px;
+}
+
+#lost {
+    font-size: 3rem;
+    top: 30%;
+    left: 0;
+    color: red;
+    text-shadow: 2px 2px black;
+    opacity: .9;
+    background-color: black;
+}
+
+#win {
+    font-size: 3rem;
+    top: 33%;
+    left: 0;
+    color: green;
+    text-shadow: 2px 2px black;
+    background-color: black;
+    opacity: .9;
+}
+
+h3 {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 1rem;
+    text-align: center;
+}
+
+#button-container {
+    position: absolute;
+    display: none;
+    justify-content: space-between;
+    width: 500px;
+    margin-left: 100px;
+    margin-top: 500px;
+}
+
+#keep-trying {
+    padding-top: 7px;
+}
+
+#start-again {
+    padding-top: 7px;
 }
