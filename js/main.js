@@ -267,7 +267,7 @@ function result() {
         document.getElementById("play-again").style.display = "block";
         document.getElementById("flag").remove();
     } else if (clicks >= 3) {
-        document.getElementById("lost").innerHTML = "Mars is a dangerous place. You have to be faster! Every second counts";
+        document.getElementById("lost").innerHTML = "Mars is too far and you lost conection. You lost millons of dollars for your incompetence!";
         document.getElementById("lost").style.display = "block";
         document.getElementById("button-container").style.display = "flex";
     }
