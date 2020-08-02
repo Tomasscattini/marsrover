@@ -48,25 +48,31 @@ function moveRoverImg() {
 function pointer() {
     let i = rover.x.toString() + rover.y.toString();
     let next = "";
+    const roverImg = document.getElementById("rover");
+
     switch (rover.direction) {
         case ("N"):
             next = (rover.x - 1).toString() + rover.y.toString();
+            roverImg.style.transform = "rotate(-90deg)";
             break;
         case ("E"):
             next = rover.x.toString() + (rover.y + 1).toString();
+            roverImg.style.transform = "rotate(0deg)";
             break;
         case ("S"):
             next = (rover.x + 1).toString() + rover.y.toString();
+            roverImg.style.transform = "rotate(90deg)";
             break;
         case ("O"):
-            next = rover.x.toString() + (rover.y + 1).toString();
+            next = rover.x.toString() + (rover.y - 1).toString();
+            roverImg.style.transform = "rotateY(180deg) rotate(0deg)";
             break;
     };
 
     if (next >= 00 && next <= 99) {
         square[next].style.backgroundColor = "green";
     } else {
-        square[i].style.backgroundColor = "green";
+        square[i].style.backgroundColor = "orange";
     }
 
 };
@@ -145,7 +151,7 @@ function moveForward(rover) {
         case 'N':
             if (rover.x <= 0) {
                 document.getElementById("error").style.display = "block";
-                console.log("You can't place the rover outside the board!")
+                console.log("You can't place the rover outside the board!");
                 document.getElementById("button-container").style.display = "flex";
             } else {
                 rover.x -= 1;
@@ -155,7 +161,7 @@ function moveForward(rover) {
         case 'E':
             if (rover.y >= 9) {
                 document.getElementById("error").style.display = "block";
-                console.log("You can't place the rover outside the board!")
+                console.log("You can't place the rover outside the board!");
                 document.getElementById("button-container").style.display = "flex";
             } else {
                 rover.y += 1;
@@ -165,7 +171,7 @@ function moveForward(rover) {
         case 'S':
             if (rover.x >= 9) {
                 document.getElementById("error").style.display = "block";
-                console.log("You can't place the rover outside the board!")
+                console.log("You can't place the rover outside the board!");
                 document.getElementById("button-container").style.display = "flex";
             } else {
                 rover.x += 1;
@@ -175,7 +181,7 @@ function moveForward(rover) {
         case 'O':
             if (rover.y <= 0) {
                 document.getElementById("error").style.display = "block";
-                console.log("You can't place the rover outside the board!")
+                console.log("You can't place the rover outside the board!");
                 document.getElementById("button-container").style.display = "flex";
             } else {
                 rover.y -= 1;
@@ -193,7 +199,7 @@ function moveBackward(rover) {
         case 'N':
             if (rover.x >= 9) {
                 document.getElementById("error").style.display = "block";
-                console.log("You can't place the rover outside the board!")
+                console.log("You can't place the rover outside the board!");
                 document.getElementById("button-container").style.display = "flex";
             } else {
                 rover.x += 1;
@@ -203,7 +209,7 @@ function moveBackward(rover) {
         case 'E':
             if (rover.y <= 0) {
                 document.getElementById("error").style.display = "block";
-                console.log("You can't place the rover outside the board!")
+                console.log("You can't place the rover outside the board!");
                 document.getElementById("button-container").style.display = "flex";
             } else {
                 rover.y -= 1;
@@ -213,7 +219,7 @@ function moveBackward(rover) {
         case 'S':
             if (rover.x <= 0) {
                 document.getElementById("error").style.display = "block";
-                console.log("You can't place the rover outside the board!")
+                console.log("You can't place the rover outside the board!");
                 document.getElementById("button-container").style.display = "flex";
             } else {
                 rover.x -= 1;
@@ -224,7 +230,7 @@ function moveBackward(rover) {
             if (rover.y >= 9) {
                 document.getElementById("error").style.display = "block";
                 document.getElementById("button-container").style.display = "flex";
-                console.log("You can't place the rover outside the board!")
+                console.log("You can't place the rover outside the board!");
                 document.getElementById("button-container").style.display = "flex";
             } else {
                 rover.y += 1;
@@ -248,7 +254,9 @@ function moveRover(parameter) {
         } else if (parameter[i] === 'l') {
             turnLeft(rover);
         } else {
-            continue;
+            document.getElementById("error2").style.display = "block";
+            console.log("You can only use the letters 'fbrl'! Try again");
+            document.getElementById("button-container").style.display = "flex";
         }
     }
 };
@@ -267,7 +275,7 @@ function result() {
         document.getElementById("play-again").style.display = "block";
         document.getElementById("flag").remove();
     } else if (clicks >= 3) {
-        document.getElementById("lost").innerHTML = "Mars is too far and you lost conection. You lost millons of dollars for your incompetence!";
+        document.getElementById("lost").innerHTML = "You lost the conection with the rover and with it millons of dollars. You are fired!";
         document.getElementById("lost").style.display = "block";
         document.getElementById("button-container").style.display = "flex";
     }
@@ -277,6 +285,7 @@ function result() {
 
 document.getElementById("keep-trying").addEventListener("click", function() {
     document.getElementById("error").style.display = "none";
+    document.getElementById("error2").style.display = "none";
     document.getElementById("lost").style.display = "none";
     document.getElementById("button-container").style.display = "none";
 });
@@ -286,6 +295,7 @@ document.getElementById("play-again").addEventListener("click", playAgain);
 
 function playAgain() {
     document.getElementById("error").style.display = "none";
+    document.getElementById("error2").style.display = "none";
     document.getElementById("lost").style.display = "none";
     document.getElementById("win").style.display = "none";
     document.getElementById("button-container").style.display = "none";
@@ -296,6 +306,7 @@ function playAgain() {
     moveRoverImg();
     gridColor();
     rover.travelLog = [];
+    clicks = 0;
 }
 
 // Input field
@@ -310,13 +321,12 @@ document.getElementById("button").addEventListener("click", function() {
     input.unshift(document.getElementById("answer").value);
 
     gridColor();
-    moveRover(input[0]);
+    moveRover(input[0].toLowerCase());
     moveRoverImg();
+    paintTrail();
     pointer();
     document.getElementById("answer").value = "";
-    paintTrail();
     clicks++;
     result();
 
-    console.log(rover.travelLog);
 });

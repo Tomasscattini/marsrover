@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Mars rover</title>
+    <title>Mars rover kata challenge</title>
 </head>
 
 <body>
 
     <div id="instructions">
         <p>You are the main engineer of the Mars Rover Project in the Space Agency.</p>
-        <p>Your task today is get the Mars Rover to the flag in the other corner of the board</p>
+        <p>Your task today is get the Mars Rover to the flag in the opposite corner of the board</p>
         <p>To do so you have to write down some instructions in the field at the bottom of the board</p>
         <p>Your instructions could be:</p>
         <ul>
@@ -61,7 +61,9 @@
         <div class="square" id="22"></div>
         <div class="square" id="23"></div>
         <div class="square" id="24"></div>
-        <div class="square" id="25"></div>
+        <div class="square" id="25">
+            <img src="img/crater.jpg" alt="crater">
+        </div>
         <div class="square" id="26"></div>
         <div class="square" id="27"></div>
         <div class="square" id="28"></div>
@@ -167,6 +169,7 @@
         </div>
 
         <h2 id="error">You can't place the rover outside the board!</h2>
+        <h2 id="error2">You can only use the commands 'f', 'b', 'r' or 'l'! Try again</h2>
         <h2 id="lost"></h2>
         <h2 id="win"></h2>
         <div id="button-container">
