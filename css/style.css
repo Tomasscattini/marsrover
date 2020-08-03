@@ -87,6 +87,7 @@ form #button {
 
 #error,
 #error2,
+#crashed,
 #lost,
 #win {
     display: none;
@@ -97,7 +98,8 @@ form #button {
 }
 
 #error,
-#error2 {
+#error2,
+#crashed {
     font-size: 3rem;
     top: 25%;
     left: 0;
