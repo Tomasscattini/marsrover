@@ -1,6 +1,6 @@
 // Grid color
 
-const square = document.getElementsByClassName('square');
+let square = document.getElementsByClassName('square');
 
 function gridColor() {
     for (let i = 0; i < square.length; i++) {
@@ -415,21 +415,21 @@ let input = [];
 gridColor();
 moveRoverImg();
 
-let answer = document.getElementById("answer").value.toLowerCase();
-
 document.getElementById("button").addEventListener("click", function() {
+
+    let answer = document.getElementById("answer").value;
 
     if (answer.length > 9) {
         document.getElementById("error3").style.display = "block";
         document.getElementById("button-container").style.display = "flex";
         answer = "";
-    } else if (answer.includes("f") == false && answer.includes("b") == false && answer.includes("l") == false && answer.includes("r") == false) {
+    } else if (answer.toLowerCase().includes("f") == false && answer.toLowerCase().includes("b") == false && answer.toLowerCase().includes("l") == false && answer.toLowerCase().includes("r") == false) {
         document.getElementById("error2").style.display = "block";
         console.log("You can only use the letters 'fbrl'! Try again");
         document.getElementById("button-container").style.display = "flex";
     } else {
 
-        input.unshift(answer);
+        input.unshift(answer.toLowerCase());
         gridColor();
         moveRover(input[0]);
         moveRoverImg();

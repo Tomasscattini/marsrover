@@ -198,52 +198,102 @@ form #button {
 #error,
 #error2,
 #error3,
-#crashed {
-    font-size: 3rem;
-    top: 25%;
-    left: 0;
+#crashed,
+#lost {
     color: red;
+}
+
+#error,
+#error2,
+#error3,
+#crashed,
+#lost,
+#win {
+    width: calc(90vw - 80px);
+    font-size: .8rem;
+    top: 15vw;
+    left: 1px;
     background-color: black;
     z-index: 4;
     text-shadow: 2px 2px black;
     padding: 40px;
 }
 
-#lost {
-    font-size: 3rem;
-    top: 30%;
-    left: 0;
-    color: red;
-    text-shadow: 2px 2px black;
-    opacity: .9;
-    background-color: black;
+@media (min-width: 448px) {
+    #error,
+    #error2,
+    #error3,
+    #crashed,
+    #lost,
+    #win {
+        font-size: 1.3rem;
+        top: 30vw;
+    }
+}
+
+@media (min-width: 990px) {
+    #error,
+    #error2,
+    #error3,
+    #crashed,
+    #lost,
+    #win {
+        font-size: 2rem;
+        width: calc(40vw - 80px);
+        top: 6vw;
+    }
+}
+
+@media (min-width: 1200px) {
+    #error,
+    #error2,
+    #error3,
+    #crashed,
+    #lost,
+    #win {
+        top: 8vw;
+    }
 }
 
 #win {
-    font-size: 3rem;
-    top: 33%;
-    left: 0;
     color: green;
-    text-shadow: 2px 2px black;
-    background-color: black;
-    opacity: .9;
 }
 
 h3 {
     margin: 0;
     text-transform: uppercase;
     font-family: sans-serif;
-    font-size: 1rem;
+    font-size: .8rem;
     text-align: center;
+}
+
+@media (min-width: 990px) {
+    h3 {
+        font-size: 1rem;
+    }
 }
 
 #button-container {
     position: absolute;
     display: none;
     justify-content: space-between;
-    width: 500px;
-    left: 100px;
-    top: 500px;
+    width: 70vw;
+    left: 10vw;
+    bottom: 10vw;
+}
+
+@media (min-width: 990px) {
+    #button-container {
+        width: 35vw;
+        left: 2.5vw;
+        bottom: 2.5vw;
+    }
+}
+
+@media (min-width: 1400px) {
+    #button-container {
+        bottom: 10vw;
+    }
 }
 
 #keep-trying {
@@ -257,7 +307,20 @@ h3 {
 #play-again {
     display: none;
     position: absolute;
-    top: 500px;
-    left: 260px;
+    bottom: 10vw;
+    left: calc(45vw - 90px);
     padding-top: 7px;
+}
+
+@media (min-width: 990px) {
+    #play-again {
+        bottom: 2.5vw;
+        left: calc(20vw - 90px);
+    }
+}
+
+@media (min-width: 1200px) {
+    #play-again {
+        bottom: 10vw;
+    }
 }
