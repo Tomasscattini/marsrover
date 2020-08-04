@@ -1,6 +1,6 @@
 // Grid color
 
-let square = document.getElementsByClassName('square');
+const square = document.getElementsByClassName('square');
 
 function gridColor() {
     for (let i = 0; i < square.length; i++) {
@@ -342,10 +342,6 @@ function moveRover(parameter) {
             turnRight(rover);
         } else if (parameter[i] === 'l') {
             turnLeft(rover);
-        } else {
-            document.getElementById("error2").style.display = "block";
-            console.log("You can only use the letters 'fbrl'! Try again");
-            document.getElementById("button-container").style.display = "flex";
         }
     }
 };
@@ -375,6 +371,7 @@ function result() {
 document.getElementById("keep-trying").addEventListener("click", function() {
     document.getElementById("error").style.display = "none";
     document.getElementById("error2").style.display = "none";
+    document.getElementById("error3").style.display = "none";
     document.getElementById("crashed").style.display = "none";
     document.getElementById("lost").style.display = "none";
     document.getElementById("button-container").style.display = "none";
@@ -387,6 +384,7 @@ document.getElementById("play-again").addEventListener("click", playAgain);
 function playAgain() {
     document.getElementById("error").style.display = "none";
     document.getElementById("error2").style.display = "none";
+    document.getElementById("error3").style.display = "none";
     document.getElementById("crashed").style.display = "none";
     document.getElementById("lost").style.display = "none";
     document.getElementById("win").style.display = "none";
@@ -417,17 +415,31 @@ let input = [];
 gridColor();
 moveRoverImg();
 
+let answer = document.getElementById("answer").value.toLowerCase();
 
 document.getElementById("button").addEventListener("click", function() {
-    input.unshift(document.getElementById("answer").value);
 
-    gridColor();
-    moveRover(input[0].toLowerCase());
-    moveRoverImg();
-    paintTrail();
-    pointer();
-    document.getElementById("answer").value = "";
-    clicks++;
-    result();
+    if (answer.length > 9) {
+        document.getElementById("error3").style.display = "block";
+        document.getElementById("button-container").style.display = "flex";
+        answer = "";
+    } else if (answer.includes("f") == false && answer.includes("b") == false && answer.includes("l") == false && answer.includes("r") == false) {
+        document.getElementById("error2").style.display = "block";
+        console.log("You can only use the letters 'fbrl'! Try again");
+        document.getElementById("button-container").style.display = "flex";
+    } else {
+
+        input.unshift(answer);
+        gridColor();
+        moveRover(input[0]);
+        moveRoverImg();
+        paintTrail();
+        pointer();
+        answer = "";
+        clicks++;
+        result();
+
+    };
+
 
 });

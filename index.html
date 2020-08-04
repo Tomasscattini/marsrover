@@ -5,189 +5,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Mars rover kata challenge</title>
+    <title>Mars Rover Kata Challenge</title>
 </head>
 
 <body>
 
-    <div id="instructions">
-        <p>You are the main engineer of the Mars Rover Project in the Space Agency.</p>
-        <p>Your task today is get the Mars Rover to the flag in the opposite corner of the board</p>
-        <p>To do so you have to write down some instructions in the field at the bottom of the board</p>
-        <p>Your instructions could be:</p>
-        <ul>
-            <li>f: to move the Rover forward</li>
-            <li>b: to move the Rover backward</li>
-            <li>r: to turn the Rover right</li>
-            <li>l: to turn the Rover left</li>
-        </ul>
-        <p>You start with the rover facing up</p>
-        <p>You can only send 3 instructions before the conection is lost and with it the Rover</p>
-        <p>Good luck!</p>
-    </div>
+    <h1 id="title">Mars Rover Kata Challenge</h1>
 
-    <div class="grid">
-        <div class="square" id="00">
-            <img id="rover" src="img/rover.jpg" alt="rover"></div>
-        <div class="square" id="01">
-            <img src="img/crater.jpg" alt="crater">
-        </div>
-        <div class="square" id="02"></div>
-        <div class="square" id="03"></div>
-        <div class="square" id="04"></div>
-        <div class="square" id="05"></div>
-        <div class="square" id="06"></div>
-        <div class="square" id="07"></div>
-        <div class="square" id="08">
-            <img src="img/crater.jpg" alt="crater">
-        </div>
-        <div class="square" id="09"></div>
-
-        <div class="square" id="10"></div>
-        <div class="square" id="11"></div>
-        <div class="square" id="12"></div>
-        <div class="square" id="13"></div>
-        <div class="square" id="14"></div>
-        <div class="square" id="15">
-            <img src="img/crater.jpg" alt="crater">
-        </div>
-        <div class="square" id="16"></div>
-        <div class="square" id="17"></div>
-        <div class="square" id="18"></div>
-        <div class="square" id="19"></div>
-
-        <div class="square" id="20"></div>
-        <div class="square" id="21"></div>
-        <div class="square" id="22"></div>
-        <div class="square" id="23"></div>
-        <div class="square" id="24"></div>
-        <div class="square" id="25">
-            <img src="img/crater.jpg" alt="crater">
-        </div>
-        <div class="square" id="26"></div>
-        <div class="square" id="27"></div>
-        <div class="square" id="28"></div>
-        <div class="square" id="29"></div>
-
-        <div class="square" id="30">
-            <img src="img/crater.jpg" alt="crater">
-        </div>
-        <div class="square" id="31"></div>
-        <div class="square" id="32"></div>
-        <div class="square" id="33">
-            <img src="img/crater.jpg" alt="crater">
-        </div>
-        <div class="square" id="34"></div>
-        <div class="square" id="35"></div>
-        <div class="square" id="36"></div>
-        <div class="square" id="37"></div>
-        <div class="square" id="38"></div>
-        <div class="square" id="39"></div>
-
-        <div class="square" id="40"></div>
-        <div class="square" id="41"></div>
-        <div class="square" id="42"></div>
-        <div class="square" id="43"></div>
-        <div class="square" id="44"></div>
-        <div class="square" id="45"></div>
-        <div class="square" id="46"></div>
-        <div class="square" id="47">
-            <img src="img/crater.jpg" alt="crater">
-        </div>
-        <div class="square" id="48"></div>
-        <div class="square" id="49"></div>
-
-        <div class="square" id="50"></div>
-        <div class="square" id="51"></div>
-        <div class="square" id="52"></div>
-        <div class="square" id="53"></div>
-        <div class="square" id="54"></div>
-        <div class="square" id="55"></div>
-        <div class="square" id="56"></div>
-        <div class="square" id="57"></div>
-        <div class="square" id="58"></div>
-        <div class="square" id="59"></div>
-
-        <div class="square" id="60"></div>
-        <div class="square" id="61"></div>
-        <div class="square" id="62">
-            <img src="img/crater.jpg" alt="crater">
-        </div>
-        <div class="square" id="63"></div>
-        <div class="square" id="64"></div>
-        <div class="square" id="65"></div>
-        <div class="square" id="66"></div>
-        <div class="square" id="67">
-            <img src="img/crater.jpg" alt="crater">
-        </div>
-        <div class="square" id="68">
-            <img src="img/crater.jpg" alt="crater">
-        </div>
-        <div class="square" id="69">
-            <img src="img/crater.jpg" alt="crater">
+    <div id="page-container">
+        <div id="instructions">
+            <p>You are the main engineer of the Mars Rover Project in the Space Agency.</p>
+            <p>Your task today is to get the Mars Rover to the flag in the opposite corner of the board</p>
+            <p>To do so you have to write down some instructions in the field at the bottom of the board</p>
+            <p>Your instructions could be:</p>
+            <ul>
+                <li>F: to move the Rover forward</li>
+                <li>B: to move the Rover backward</li>
+                <li>R: to turn the Rover right</li>
+                <li>L: to turn the Rover left</li>
+            </ul>
+            <p>You start with the rover facing up</p>
+            <p>You can only send 3 instructions of up to 9 characters before the conection is lost and with it the Rover</p>
+            <p>Good luck!</p>
         </div>
 
-        <div class="square" id="70"></div>
-        <div class="square" id="71"></div>
-        <div class="square" id="72"></div>
-        <div class="square" id="73"></div>
-        <div class="square" id="74"></div>
-        <div class="square" id="75"></div>
-        <div class="square" id="76"></div>
-        <div class="square" id="77"></div>
-        <div class="square" id="78">
-            <img src="img/crater.jpg" alt="crater">
-        </div>
-        <div class="square" id="79"></div>
-
-        <div class="square" id="80"></div>
-        <div class="square" id="81"></div>
-        <div class="square" id="82"></div>
-        <div class="square" id="83"></div>
-        <div class="square" id="84"></div>
-        <div class="square" id="85">
-            <img src="img/crater.jpg" alt="crater">
-        </div>
-        <div class="square" id="86"></div>
-        <div class="square" id="87"></div>
-        <div class="square" id="88"></div>
-        <div class="square" id="89"></div>
-
-        <div class="square" id="90"></div>
-        <div class="square" id="91"></div>
-        <div class="square" id="92"></div>
-        <div class="square" id="93"></div>
-        <div class="square" id="94"></div>
-        <div class="square" id="95"></div>
-        <div class="square" id="96"></div>
-        <div class="square" id="97">
-            <img src="img/crater.jpg" alt="crater">
-        </div>
-        <div class="square" id="98"></div>
-        <div class="square" id="99">
-            <img id="flag" src="img/flag.svg" alt="flag">
-        </div>
-
-        <h2 id="error">You can't place the rover outside the board!</h2>
-        <h2 id="error2">You can only use the commands 'f', 'b', 'r' or 'l'! Try again</h2>
-        <h2 id="crashed">You crashed into a crater!</h2>
-        <h2 id="lost"></h2>
-        <h2 id="win"></h2>
-        <div id="button-container">
-            <div class="button" id="keep-trying">
-                <h3>Keep trying</h3>
+        <div class="grid">
+            <div class="square" id="00">
+                <img id="rover" src="img/rover.jpg" alt="rover"></div>
+            <div class="square" id="01">
+                <img src="img/crater.jpg" alt="crater">
             </div>
-            <div class="button" id="start-again">
-                <h3>Start again</h3>
+            <div class="square" id="02"></div>
+            <div class="square" id="03"></div>
+            <div class="square" id="04"></div>
+            <div class="square" id="05"></div>
+            <div class="square" id="06"></div>
+            <div class="square" id="07"></div>
+            <div class="square" id="08">
+                <img src="img/crater.jpg" alt="crater">
             </div>
-        </div>
-        <div class="button" id="play-again">
-            <h3>Play again</h3>
+            <div class="square" id="09"></div>
+
+            <div class="square" id="10"></div>
+            <div class="square" id="11"></div>
+            <div class="square" id="12"></div>
+            <div class="square" id="13"></div>
+            <div class="square" id="14"></div>
+            <div class="square" id="15">
+                <img src="img/crater.jpg" alt="crater">
+            </div>
+            <div class="square" id="16"></div>
+            <div class="square" id="17"></div>
+            <div class="square" id="18"></div>
+            <div class="square" id="19"></div>
+
+            <div class="square" id="20"></div>
+            <div class="square" id="21"></div>
+            <div class="square" id="22"></div>
+            <div class="square" id="23"></div>
+            <div class="square" id="24"></div>
+            <div class="square" id="25">
+                <img src="img/crater.jpg" alt="crater">
+            </div>
+            <div class="square" id="26"></div>
+            <div class="square" id="27"></div>
+            <div class="square" id="28"></div>
+            <div class="square" id="29"></div>
+
+            <div class="square" id="30">
+                <img src="img/crater.jpg" alt="crater">
+            </div>
+            <div class="square" id="31"></div>
+            <div class="square" id="32"></div>
+            <div class="square" id="33">
+                <img src="img/crater.jpg" alt="crater">
+            </div>
+            <div class="square" id="34"></div>
+            <div class="square" id="35"></div>
+            <div class="square" id="36"></div>
+            <div class="square" id="37"></div>
+            <div class="square" id="38"></div>
+            <div class="square" id="39"></div>
+
+            <div class="square" id="40"></div>
+            <div class="square" id="41"></div>
+            <div class="square" id="42"></div>
+            <div class="square" id="43"></div>
+            <div class="square" id="44"></div>
+            <div class="square" id="45"></div>
+            <div class="square" id="46"></div>
+            <div class="square" id="47">
+                <img src="img/crater.jpg" alt="crater">
+            </div>
+            <div class="square" id="48"></div>
+            <div class="square" id="49"></div>
+
+            <div class="square" id="50"></div>
+            <div class="square" id="51"></div>
+            <div class="square" id="52"></div>
+            <div class="square" id="53"></div>
+            <div class="square" id="54"></div>
+            <div class="square" id="55"></div>
+            <div class="square" id="56"></div>
+            <div class="square" id="57"></div>
+            <div class="square" id="58"></div>
+            <div class="square" id="59"></div>
+
+            <div class="square" id="60"></div>
+            <div class="square" id="61"></div>
+            <div class="square" id="62">
+                <img src="img/crater.jpg" alt="crater">
+            </div>
+            <div class="square" id="63"></div>
+            <div class="square" id="64"></div>
+            <div class="square" id="65"></div>
+            <div class="square" id="66"></div>
+            <div class="square" id="67">
+                <img src="img/crater.jpg" alt="crater">
+            </div>
+            <div class="square" id="68">
+                <img src="img/crater.jpg" alt="crater">
+            </div>
+            <div class="square" id="69">
+                <img src="img/crater.jpg" alt="crater">
+            </div>
+
+            <div class="square" id="70"></div>
+            <div class="square" id="71"></div>
+            <div class="square" id="72"></div>
+            <div class="square" id="73"></div>
+            <div class="square" id="74"></div>
+            <div class="square" id="75"></div>
+            <div class="square" id="76"></div>
+            <div class="square" id="77"></div>
+            <div class="square" id="78">
+                <img src="img/crater.jpg" alt="crater">
+            </div>
+            <div class="square" id="79"></div>
+
+            <div class="square" id="80"></div>
+            <div class="square" id="81"></div>
+            <div class="square" id="82"></div>
+            <div class="square" id="83"></div>
+            <div class="square" id="84"></div>
+            <div class="square" id="85">
+                <img src="img/crater.jpg" alt="crater">
+            </div>
+            <div class="square" id="86"></div>
+            <div class="square" id="87"></div>
+            <div class="square" id="88"></div>
+            <div class="square" id="89"></div>
+
+            <div class="square" id="90"></div>
+            <div class="square" id="91"></div>
+            <div class="square" id="92"></div>
+            <div class="square" id="93"></div>
+            <div class="square" id="94"></div>
+            <div class="square" id="95"></div>
+            <div class="square" id="96"></div>
+            <div class="square" id="97">
+                <img src="img/crater.jpg" alt="crater">
+            </div>
+            <div class="square" id="98"></div>
+            <div class="square" id="99">
+                <img id="flag" src="img/flag.svg" alt="flag">
+            </div>
+
+            <h2 id="error">You can't place the rover outside the board!</h2>
+            <h2 id="error2">You can only use the commands 'f', 'b', 'r' or 'l'! Try again</h2>
+            <h2 id="error3">You can only write up to 9 characters! Try again</h2>
+            <h2 id="crashed">You crashed into a crater!</h2>
+            <h2 id="lost"></h2>
+            <h2 id="win"></h2>
+            <div id="button-container">
+                <div class="button" id="keep-trying">
+                    <h3>Keep trying</h3>
+                </div>
+                <div class="button" id="start-again">
+                    <h3>Start again</h3>
+                </div>
+            </div>
+            <div class="button" id="play-again">
+                <h3>Play again</h3>
+            </div>
         </div>
     </div>
 
     <form action="#">
-        <label for="answer"><h1>Write your answer here:</h1></label>
+        <label for="answer"><h4>Write your answer here:</h4></label>
         <input id="answer" type="text" placeholder="Your answer">
         <input id="button" class="button" type="button" value="Submit">
     </form>
