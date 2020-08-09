@@ -92,16 +92,27 @@ function paintTrail() {
 
 let crater = [01, 08, 15, 25, 30, 33, 47, 62, 67, 68, 69, 78, 85, 97];
 
+function createCrater() {
+    for (let i = 0; i < crater.length; i++) {
+        let j = crater[i];
+        const node = document.createElement("img");
+        node.src = "img/crater.jpg";
+        node.alt = "Crater";
+        node.id = "crater";
+        square[j].appendChild(node);
+    };
+};
+
 // Check craters
 
-let crashed = "no";
+let crashed = false;
 
 function checkFront() {
     for (let i = 0; i < crater.length; i++) {
         switch (rover.direction) {
             case 'N':
                 if (Number((rover.x - 1).toString() + rover.y.toString()) === crater[i]) {
-                    crashed = "yes";
+                    crashed = true;
                     break;
                 } else {
                     continue;
@@ -110,7 +121,7 @@ function checkFront() {
 
             case 'E':
                 if (Number(rover.x.toString() + (rover.y + 1).toString()) === crater[i]) {
-                    crashed = "yes";
+                    crashed = true;
                     break;
                 } else {
                     continue;
@@ -119,7 +130,7 @@ function checkFront() {
 
             case 'S':
                 if (Number((rover.x + 1).toString() + rover.y.toString()) === crater[i]) {
-                    crashed = "yes";
+                    crashed = true;
                     break;
                 } else {
                     continue;
@@ -128,7 +139,7 @@ function checkFront() {
 
             case 'O':
                 if (Number(rover.x.toString() + (rover.y - 1).toString()) === crater[i]) {
-                    crashed = "yes";
+                    crashed = true;
                     break;
                 } else {
                     continue;
@@ -143,7 +154,7 @@ function checkBack() {
         switch (rover.direction) {
             case 'N':
                 if (Number((rover.x + 1).toString() + rover.y.toString()) === crater[i]) {
-                    crashed = "yes";
+                    crashed = true;
                     break;
                 } else {
                     continue;
@@ -152,7 +163,7 @@ function checkBack() {
 
             case 'E':
                 if (Number(rover.x.toString() + (rover.y - 1).toString()) === crater[i]) {
-                    crashed = "yes";
+                    crashed = true;
                     break;
                 } else {
                     continue;
@@ -161,7 +172,7 @@ function checkBack() {
 
             case 'S':
                 if (Number((rover.x - 1).toString() + rover.y.toString()) === crater[i]) {
-                    crashed = "yes";
+                    crashed = true;
                     break;
                 } else {
                     continue;
@@ -170,7 +181,7 @@ function checkBack() {
 
             case 'O':
                 if (Number(rover.x.toString() + (rover.y + 1).toString()) === crater[i]) {
-                    crashed = "yes";
+                    crashed = true;
                     break;
                 } else {
                     continue;
@@ -225,7 +236,7 @@ function turnRight(rover) {
 
 function moveForward(rover) {
     checkFront();
-    if (crashed === "yes") {
+    if (crashed == true) {
         document.getElementById("crashed").style.display = "block";
         document.getElementById("button-container").style.display = "flex";
     } else {
@@ -279,7 +290,7 @@ function moveForward(rover) {
 
 function moveBackward(rover) {
     checkBack();
-    if (crashed == "yes") {
+    if (crashed == true) {
         document.getElementById("crashed").style.display = "block";
         document.getElementById("button-container").style.display = "flex";
     } else {
@@ -375,7 +386,7 @@ document.getElementById("keep-trying").addEventListener("click", function() {
     document.getElementById("crashed").style.display = "none";
     document.getElementById("lost").style.display = "none";
     document.getElementById("button-container").style.display = "none";
-    crashed = "no";
+    crashed = false;
 });
 
 document.getElementById("start-again").addEventListener("click", playAgain);
@@ -393,7 +404,7 @@ function playAgain() {
     rover.x = 0;
     rover.y = 0;
     rover.direction = "N";
-    crashed = "no";
+    crashed = false;
     moveRoverImg();
     gridColor();
     rover.travelLog = [];
@@ -413,6 +424,7 @@ function playAgain() {
 let input = [];
 
 gridColor();
+createCrater();
 moveRoverImg();
 
 document.getElementById("button").addEventListener("click", function() {
@@ -435,11 +447,10 @@ document.getElementById("button").addEventListener("click", function() {
         moveRoverImg();
         paintTrail();
         pointer();
-        answer = "";
         clicks++;
         result();
+        answer = "";
 
     };
-
 
 });
