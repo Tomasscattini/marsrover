@@ -15,7 +15,7 @@
     <div id="page-container">
         <div id="instructions">
             <p>You are the main engineer of the Mars Rover Project in the Space Agency.</p>
-            <p>Your task today is to get the Mars Rover to the flag in the opposite corner of the board</p>
+            <p>Your task today is to get the Mars Rover to the flag</p>
             <p>To do so you have to write down some instructions in the field at the bottom of the board</p>
             <p>Your instructions could be:</p>
             <ul>
@@ -139,16 +139,17 @@
             <div class="square" id="96"></div>
             <div class="square" id="97"></div>
             <div class="square" id="98"></div>
-            <div class="square" id="99">
-                <img id="flag" src="img/flag.svg" alt="flag">
-            </div>
+            <div class="square" id="99"></div>
 
             <h2 id="error">You can't place the rover outside the board!</h2>
-            <h2 id="error2">You can only use the commands 'f', 'b', 'r' or 'l'! Try again</h2>
-            <h2 id="error3">You can only write up to 9 characters! Try again</h2>
-            <h2 id="crashed">You crashed into a crater!</h2>
+            <h2 id="error2"></h2>
+            <h2 id="error3"></h2>
+            <h2 id="crashed"></h2>
             <h2 id="lost"></h2>
             <h2 id="win"></h2>
+
+            <!-- buttons -->
+
             <div id="button-container">
                 <div class="button" id="keep-trying">
                     <h3>Keep trying</h3>
@@ -157,8 +158,14 @@
                     <h3>Start again</h3>
                 </div>
             </div>
-            <div class="button" id="play-again">
-                <h3>Play again</h3>
+
+            <div id="button-container2">
+                <div class="button" id="play-again">
+                    <h3>Play again</h3>
+                </div>
+                <div class="button" id="next-level">
+                    <h3>Next level</h3>
+                </div>
             </div>
         </div>
     </div>
